@@ -529,7 +529,7 @@
         .hero-photo {
             width: 100%;
             border-radius: 16px;
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
             object-fit: cover;
             display: block;
         }
@@ -560,16 +560,23 @@
             font-size: 1.15rem;
             line-height: 1.8;
             color: var(--ink-soft);
-            min-height: 150px; 
-            border-right: 2px solid var(--ink); 
+            min-height: 150px;
+            border-right: 2px solid var(--ink);
             padding-right: 4px;
             display: inline-block;
             animation: blinkCursor 0.75s step-end infinite;
         }
 
         @keyframes blinkCursor {
-            from, to { border-color: transparent }
-            50% { border-color: var(--ink); }
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: var(--ink);
+            }
         }
 
         @media (max-width: 768px) {
@@ -586,8 +593,14 @@
                 gap: 1.5rem;
                 margin-bottom: 2.5rem;
             }
-            .hero-name { font-size: 2.5rem; }
-            .hero-bio { min-height: 90px; }
+
+            .hero-name {
+                font-size: 2.5rem;
+            }
+
+            .hero-bio {
+                min-height: 90px;
+            }
 
             .topbar-inner {
                 flex-direction: column;
@@ -664,7 +677,11 @@
             justify-content: center;
             transition: all 0.2s;
         }
-        .theme-btn:hover { background: var(--paper-raised); transform: scale(1.05); }
+
+        .theme-btn:hover {
+            background: var(--paper-raised);
+            transform: scale(1.05);
+        }
 
         .back-to-top {
             position: fixed;
@@ -683,13 +700,15 @@
             transform: translateY(20px);
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             z-index: 100;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
+
         .back-to-top.visible {
             opacity: 1;
             pointer-events: auto;
             transform: translateY(0);
         }
+
         .back-to-top:hover {
             transform: translateY(-4px);
         }
@@ -711,10 +730,12 @@
         .toc-item {
             transition: all 0.2s;
         }
+
         .toc-item.active .toc-link {
             color: var(--brick-deep);
             font-weight: 700;
         }
+
         .toc-item.active {
             background: var(--paper-raised);
             padding-left: 12px;
@@ -727,11 +748,13 @@
             background-image: linear-gradient(transparent 65%, #FFE066 35%);
             background-repeat: no-repeat;
             background-size: 0% 100%;
-            transition: background-size 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+            transition: background-size 2.5s cubic-bezier(0.22, 1, 0.36, 1);
         }
+
         body.dark-mode .highlight {
             background-image: linear-gradient(transparent 65%, #997B00 35%);
         }
+
         .highlight.show {
             background-size: 100% 100%;
         }
@@ -741,14 +764,15 @@
             border-color: #243838;
             color: #5BB0A9;
         }
+
         body.dark-mode .vocab-chip b {
             color: #A0C5C2;
         }
+
         body.dark-mode .opinion {
             border-left-color: #5BB0A9;
             color: #C0C0C0;
         }
-
     </style>
 </head>
 
@@ -759,7 +783,17 @@
             <span class="rec"><span class="rec-dot"></span> Session Log</span>
             <span>Communicative English &middot; FOT &middot; CA1</span>
             <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">
-                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
             </button>
         </div>
     </div>
@@ -786,18 +820,22 @@
     </section>
 
 
-    
+
 
 
     <nav class="filterbar">
         <div class="wrap filterbar-inner">
             <span class="filter-label">Filter by channel</span>
             <span class="pill active" data-filter="all">All 10</span>
-            <span class="pill" data-filter="DOAC"><span class="dot" style="background:#B8432B"></span>Diary of a CEO</span>
-            <span class="pill" data-filter="Shamani"><span class="dot" style="background:#FF6A00"></span>Raj Shamani</span>
+            <span class="pill" data-filter="DOAC"><span class="dot" style="background:#B8432B"></span>Diary of a
+                CEO</span>
+            <span class="pill" data-filter="Shamani"><span class="dot" style="background:#FF6A00"></span>Raj
+                Shamani</span>
             <span class="pill" data-filter="TED"><span class="dot" style="background:#A8242A"></span>TED</span>
-            <span class="pill" data-filter="Motivational"><span class="dot" style="background:#2E8B57"></span>Motivational</span>
-            <span class="pill" data-filter="Educational"><span class="dot" style="background:#006B3E"></span>theMITmonk</span>
+            <span class="pill" data-filter="Motivational"><span class="dot"
+                    style="background:#2E8B57"></span>Motivational</span>
+            <span class="pill" data-filter="Educational"><span class="dot"
+                    style="background:#006B3E"></span>theMITmonk</span>
         </div>
     </nav>
 
@@ -821,19 +859,19 @@
     <script>
         const entries = [
             {
-            track: "01", channel: "DOAC", channelLabel: "Diary of a CEO",
+                track: "01", channel: "DOAC", channelLabel: "Diary of a CEO",
                 title: "Ex-Google Officer Speaks Out On The Dangers Of AI! | Mo Gawdat",
-                    dateAccessed: "17 Jun 2026", published: "25 May 2023",
-                        refText: "YouTube — The Diary of a CEO.",
-                            refLink: "https://www.youtube.com/watch?v=bk-nQ7HF6k4",
-                                embedUrl: "https://www.youtube-nocookie.com/embed/bk-nQ7HF6k4",
-                                    summary: "Steven Bartlett interviews Mo Gawdat, former Chief Business Officer at Google X. They discuss the rapid advancement of Artificial Intelligence, its potential to reshape the global economy, and the urgent need for ethical leadership in tech startups.",
-                                        opinion: "As someone interested in the intersection of tech and business, this interview was a wake-up call. Mo Gawdat's unique perspective from inside Google X made the abstract concept of AI feel incredibly real. It made me realize that future business leaders will need to prioritize ethics just as much as innovation.",
-                                            vocab: [
-                                                { term: "alignment", def: "in AI, the process of ensuring a system's goals match human values" },
-                                                { term: "existential", def: "relating to existence; often used to describe threats to humanity's survival" }
-                                            ]
-        },
+                dateAccessed: "17 Jun 2026", published: "25 May 2023",
+                refText: "YouTube — The Diary of a CEO.",
+                refLink: "https://www.youtube.com/watch?v=bk-nQ7HF6k4",
+                embedUrl: "https://www.youtube-nocookie.com/embed/bk-nQ7HF6k4",
+                summary: "Steven Bartlett interviews Mo Gawdat, former Chief Business Officer at Google X. They discuss the rapid advancement of Artificial Intelligence, its potential to reshape the global economy, and the urgent need for ethical leadership in tech startups.",
+                opinion: "As someone interested in the intersection of tech and business, this interview was a wake-up call. Mo Gawdat's unique perspective from inside Google X made the abstract concept of AI feel incredibly real. It made me realize that future business leaders will need to prioritize ethics just as much as innovation.",
+                vocab: [
+                    { term: "alignment", def: "in AI, the process of ensuring a system's goals match human values" },
+                    { term: "existential", def: "relating to existence; often used to describe threats to humanity's survival" }
+                ]
+            },
             {
                 track: "02", channel: "DOAC", channelLabel: "Diary of a CEO",
                 title: "Tech Whistleblower: You Only Have 3 Years Left Before It Hits — Mo Gawdat",
@@ -864,105 +902,105 @@
                     { term: "chess piece", def: "(metaphorical) a person or thing used by someone to achieve a strategic goal" }
                 ]
             },
-        {
-            track: "04", channel: "Motivational", channelLabel: "Jim Rohn",
+            {
+                track: "04", channel: "Motivational", channelLabel: "Jim Rohn",
                 title: "How to Get Whatever You Want | Jim Rohn",
-                    dateAccessed: "17 Jun 2026", published: "12 Dec 2023",
-                        refText: "YouTube — Jim Rohn Motivation.",
-                            refLink: "https://www.youtube.com/watch?v=uOcKF-aLHyw",
-                                embedUrl: "https://www.youtube-nocookie.com/embed/uOcKF-aLHyw",
-                                    summary: "A classic motivational segment from Jim Rohn’s seminar, 'The Challenge to Succeed.' He discusses the 'Art of Asking' as the fundamental first step to achieving goals, emphasizing that you must ask intelligently and with the absolute faith of a child.",
-                                        opinion: "This vintage seminar struck a profound chord with me. Rohn’s simple statement that people fail because they are 'bad askers' made me reflect on how often I hold back from stating exactly what I need. His advice to 'make plans like an adult, and believe in them like a child' is a perfect balance of pragmatism and optimism.",
-                                            vocab: [
-                                                { term: "pragmatism", def: "a practical, matter-of-fact way of approaching situations or solving problems" },
-                                                { term: "sincerity", def: "the absence of hypocrisy, deceit, or pretense; earnestness" }
-                                            ]
-        },
-        {
-            track: "05", channel: "TED", channelLabel: "TED",
+                dateAccessed: "17 Jun 2026", published: "12 Dec 2023",
+                refText: "YouTube — Jim Rohn Motivation.",
+                refLink: "https://www.youtube.com/watch?v=uOcKF-aLHyw",
+                embedUrl: "https://www.youtube-nocookie.com/embed/uOcKF-aLHyw",
+                summary: "A classic motivational segment from Jim Rohn’s seminar, 'The Challenge to Succeed.' He discusses the 'Art of Asking' as the fundamental first step to achieving goals, emphasizing that you must ask intelligently and with the absolute faith of a child.",
+                opinion: "This vintage seminar struck a profound chord with me. Rohn’s simple statement that people fail because they are 'bad askers' made me reflect on how often I hold back from stating exactly what I need. His advice to 'make plans like an adult, and believe in them like a child' is a perfect balance of pragmatism and optimism.",
+                vocab: [
+                    { term: "pragmatism", def: "a practical, matter-of-fact way of approaching situations or solving problems" },
+                    { term: "sincerity", def: "the absence of hypocrisy, deceit, or pretense; earnestness" }
+                ]
+            },
+            {
+                track: "05", channel: "TED", channelLabel: "TED",
                 title: "How AI Could Empower Any Business | Andrew Ng",
-                    dateAccessed: "17 Jun 2026", published: "12 May 2022",
-                        refText: "YouTube — TED channel.",
-                            refLink: "https://www.youtube.com/watch?v=reUZRyXxUs4",
-                                embedUrl: "https://www.youtube-nocookie.com/embed/reUZRyXxUs4",
-                                    summary: "AI pioneer Andrew Ng discusses how artificial intelligence shouldn't just be for big tech companies. He explains how accessible AI tools can empower small businesses and startups to optimize their operations and increase revenue.",
-                                        opinion: "This TED Talk completely changed how I view AI in business. Instead of seeing it as a monolithic tool only affordable by giants like Google or Meta, Andrew Ng made me realize that AI is becoming democratized. It inspired me to think about how startups and local businesses can leverage custom models.",
-                                            vocab: [
-                                                { term: "democratize", def: "to make something accessible to everyone" },
-                                                { term: "long tail", def: "the large number of products or occurrences that are far from the 'head' or central part of a distribution" }
-                                            ]
-        },
-        {
-            track: "06", channel: "TED", channelLabel: "TED",
+                dateAccessed: "17 Jun 2026", published: "12 May 2022",
+                refText: "YouTube — TED channel.",
+                refLink: "https://www.youtube.com/watch?v=reUZRyXxUs4",
+                embedUrl: "https://www.youtube-nocookie.com/embed/reUZRyXxUs4",
+                summary: "AI pioneer Andrew Ng discusses how artificial intelligence shouldn't just be for big tech companies. He explains how accessible AI tools can empower small businesses and startups to optimize their operations and increase revenue.",
+                opinion: "This TED Talk completely changed how I view AI in business. Instead of seeing it as a monolithic tool only affordable by giants like Google or Meta, Andrew Ng made me realize that AI is becoming democratized. It inspired me to think about how startups and local businesses can leverage custom models.",
+                vocab: [
+                    { term: "democratize", def: "to make something accessible to everyone" },
+                    { term: "long tail", def: "the large number of products or occurrences that are far from the 'head' or central part of a distribution" }
+                ]
+            },
+            {
+                track: "06", channel: "TED", channelLabel: "TED",
                 title: "Sam Altman: The Inside Story of ChatGPT",
-                    dateAccessed: "17 Jun 2026", published: "19 Apr 2023",
-                        refText: "YouTube — TED channel.",
-                            refLink: "https://www.youtube.com/watch?v=5MWT_doo68k",
-                                embedUrl: "https://www.youtube-nocookie.com/embed/5MWT_doo68k",
-                                    summary: "In this TED Talk, OpenAI CEO Sam Altman discusses the development, unexpected success, and profound implications of ChatGPT. He addresses the fears surrounding AGI (Artificial General Intelligence) and advocates for iterative deployment to allow society time to adapt.",
-                                        opinion: "Hearing directly from the person at the helm of the AI revolution was fascinating. What stood out to me was his emphasis on 'iterative deployment'—the idea that releasing imperfect technology early gives humanity the chance to co-evolve with it. It changed my perspective on why tech companies push beta products.",
-                                            vocab: [
-                                                { term: "iterative", def: "relating to or involving repetition; doing something again and again to improve it" },
-                                                { term: "implications", def: "the conclusion that can be drawn from something, although it is not explicitly stated" }
-                                            ]
-        },
-        {
-            track: "07", channel: "Educational", channelLabel: "theMITmonk",
+                dateAccessed: "17 Jun 2026", published: "19 Apr 2023",
+                refText: "YouTube — TED channel.",
+                refLink: "https://www.youtube.com/watch?v=5MWT_doo68k",
+                embedUrl: "https://www.youtube-nocookie.com/embed/5MWT_doo68k",
+                summary: "In this TED Talk, OpenAI CEO Sam Altman discusses the development, unexpected success, and profound implications of ChatGPT. He addresses the fears surrounding AGI (Artificial General Intelligence) and advocates for iterative deployment to allow society time to adapt.",
+                opinion: "Hearing directly from the person at the helm of the AI revolution was fascinating. What stood out to me was his emphasis on 'iterative deployment'—the idea that releasing imperfect technology early gives humanity the chance to co-evolve with it. It changed my perspective on why tech companies push beta products.",
+                vocab: [
+                    { term: "iterative", def: "relating to or involving repetition; doing something again and again to improve it" },
+                    { term: "implications", def: "the conclusion that can be drawn from something, although it is not explicitly stated" }
+                ]
+            },
+            {
+                track: "07", channel: "Educational", channelLabel: "theMITmonk",
                 title: "How To Think SO CLEARLY People Assume You're A Genius",
-                    dateAccessed: "17 Jun 2026", published: "5 Nov 2023",
-                        refText: "YouTube — Sandeep Swadia (theMITmonk).",
-                            refLink: "https://www.youtube.com/watch?v=mjTgkm-h__M",
-                                embedUrl: "https://www.youtube-nocookie.com/embed/mjTgkm-h__M",
-                                    summary: "Sandeep Swadia breaks down the concept of systems thinking as a framework for clarity and effective decision-making. He explains that intelligent people often fail not because they lack intelligence, but because they misunderstand the system they are operating within, distinguishing between clear, complicated, and complex systems.",
-                                        opinion: "This video completely shifted how I approach problem-solving. Learning to pause and diagnose the 'type' of system I am dealing with before taking action was a massive lightbulb moment. It made me realize that applying a 'complicated' solution to a 'complex' problem is a recipe for disaster.",
-                                            vocab: [
-                                                { term: "systems thinking", def: "a holistic approach to analysis that focuses on the way a system's constituent parts interrelate" },
-                                                { term: "complex system", def: "a system in which the relationship between cause and effect is only obvious in hindsight" }
-                                            ]
-        },
-        {
-            track: "08", channel: "Motivational", channelLabel: "Motivational",
+                dateAccessed: "17 Jun 2026", published: "5 Nov 2023",
+                refText: "YouTube — Sandeep Swadia (theMITmonk).",
+                refLink: "https://www.youtube.com/watch?v=mjTgkm-h__M",
+                embedUrl: "https://www.youtube-nocookie.com/embed/mjTgkm-h__M",
+                summary: "Sandeep Swadia breaks down the concept of systems thinking as a framework for clarity and effective decision-making. He explains that intelligent people often fail not because they lack intelligence, but because they misunderstand the system they are operating within, distinguishing between clear, complicated, and complex systems.",
+                opinion: "This video completely shifted how I approach problem-solving. Learning to pause and diagnose the 'type' of system I am dealing with before taking action was a massive lightbulb moment. It made me realize that applying a 'complicated' solution to a 'complex' problem is a recipe for disaster.",
+                vocab: [
+                    { term: "systems thinking", def: "a holistic approach to analysis that focuses on the way a system's constituent parts interrelate" },
+                    { term: "complex system", def: "a system in which the relationship between cause and effect is only obvious in hindsight" }
+                ]
+            },
+            {
+                track: "08", channel: "Motivational", channelLabel: "Motivational",
                 title: "Dream - Motivational Video | Mateusz M",
-                    dateAccessed: "17 Jun 2026", published: "30 Oct 2013",
-                        refText: "YouTube — Mateusz M.",
-                            refLink: "https://www.youtube.com/watch?v=g-jwWYX7Jlo",
-                                embedUrl: "https://www.youtube-nocookie.com/embed/g-jwWYX7Jlo",
-                                    summary: "A powerful motivational montage focusing on self-growth, featuring speeches from Les Brown and Eric Thomas. The video focuses on the importance of having a vision, taking responsibility for your life, and the relentless persistence required to turn a dream into a successful business.",
-                                        opinion: "This video is pure fuel for self-growth. The core message that 'it is not over until you win' really resonated with me. Whenever the entrepreneurial journey feels overwhelming, revisiting speeches like these provides the psychological reset needed to keep pushing forward.",
-                                            vocab: [
-                                                { term: "persistence", def: "firm or obstinate continuance in a course of action in spite of difficulty or opposition" },
-                                                { term: "vision", def: "the ability to think about or plan the future with imagination or wisdom" }
-                                            ]
-        },
-        {
-            track: "09", channel: "Shamani", channelLabel: "Raj Shamani",
+                dateAccessed: "17 Jun 2026", published: "30 Oct 2013",
+                refText: "YouTube — Mateusz M.",
+                refLink: "https://www.youtube.com/watch?v=g-jwWYX7Jlo",
+                embedUrl: "https://www.youtube-nocookie.com/embed/g-jwWYX7Jlo",
+                summary: "A powerful motivational montage focusing on self-growth, featuring speeches from Les Brown and Eric Thomas. The video focuses on the importance of having a vision, taking responsibility for your life, and the relentless persistence required to turn a dream into a successful business.",
+                opinion: "This video is pure fuel for self-growth. The core message that 'it is not over until you win' really resonated with me. Whenever the entrepreneurial journey feels overwhelming, revisiting speeches like these provides the psychological reset needed to keep pushing forward.",
+                vocab: [
+                    { term: "persistence", def: "firm or obstinate continuance in a course of action in spite of difficulty or opposition" },
+                    { term: "vision", def: "the ability to think about or plan the future with imagination or wisdom" }
+                ]
+            },
+            {
+                track: "09", channel: "Shamani", channelLabel: "Raj Shamani",
                 title: "How To Build a Billion Dollar AI Business | Perplexity",
-                    dateAccessed: "17 Jun 2026", published: "14 Feb 2024",
-                        refText: "YouTube — Figuring Out with Raj Shamani.",
-                            refLink: "https://www.youtube.com/watch?v=QY6yHJC2DIE",
-                                embedUrl: "https://www.youtube-nocookie.com/embed/QY6yHJC2DIE",
-                                    summary: "Raj Shamani interviews Aravind Srinivas, the founder of Perplexity AI. They discuss the future of artificial intelligence, the realities of competing with tech giants like Google, and the incredible journey of building a billion-dollar AI search engine from the ground up.",
-                                        opinion: "This conversation completely demystified the startup world for me. Hearing firsthand about the courage it takes to challenge established monopolies like Google was incredibly inspiring. It showed me that innovation is less about having endless resources and more about identifying a core problem and solving it relentlessly.",
-                                            vocab: [
-                                                { term: "demystify", def: "to make a difficult or esoteric subject clearer and easier to understand" },
-                                                { term: "monopoly", def: "the exclusive possession or control of the supply or trade in a commodity or service" }
-                                            ]
-        },
-        {
-            track: "10", channel: "TED", channelLabel: "TED",
+                dateAccessed: "17 Jun 2026", published: "14 Feb 2024",
+                refText: "YouTube — Figuring Out with Raj Shamani.",
+                refLink: "https://www.youtube.com/watch?v=QY6yHJC2DIE",
+                embedUrl: "https://www.youtube-nocookie.com/embed/QY6yHJC2DIE",
+                summary: "Raj Shamani interviews Aravind Srinivas, the founder of Perplexity AI. They discuss the future of artificial intelligence, the realities of competing with tech giants like Google, and the incredible journey of building a billion-dollar AI search engine from the ground up.",
+                opinion: "This conversation completely demystified the startup world for me. Hearing firsthand about the courage it takes to challenge established monopolies like Google was incredibly inspiring. It showed me that innovation is less about having endless resources and more about identifying a core problem and solving it relentlessly.",
+                vocab: [
+                    { term: "demystify", def: "to make a difficult or esoteric subject clearer and easier to understand" },
+                    { term: "monopoly", def: "the exclusive possession or control of the supply or trade in a commodity or service" }
+                ]
+            },
+            {
+                track: "10", channel: "TED", channelLabel: "TED",
                 title: "How Great Leaders Inspire Action | Simon Sinek",
-                    dateAccessed: "17 Jun 2026", published: "4 May 2010",
-                        refText: "YouTube — TED channel.",
-                            refLink: "https://www.youtube.com/watch?v=qp0HIF3SfI4",
-                                embedUrl: "https://www.youtube-nocookie.com/embed/qp0HIF3SfI4",
-                                    summary: "Simon Sinek presents a simple but powerful model for inspirational leadership and startup marketing, starting with a golden circle and the question 'Why?'. He uses examples like Apple to explain why some organizations inspire while others do not.",
-                                        opinion: "This is arguably one of the most important videos for anyone interested in startups. Sinek's concept that 'people don't buy what you do; they buy why you do it' completely flips traditional marketing on its head. It taught me that a successful business must be built on a core belief.",
-                                            vocab: [
-                                                { term: "golden circle", def: "Simon Sinek's model consisting of three layers: What, How, and Why" },
-                                                { term: "value proposition", def: "an innovation, service, or feature intended to make a company or product attractive to customers" }
-                                            ]
-        }
-];
+                dateAccessed: "17 Jun 2026", published: "4 May 2010",
+                refText: "YouTube — TED channel.",
+                refLink: "https://www.youtube.com/watch?v=qp0HIF3SfI4",
+                embedUrl: "https://www.youtube-nocookie.com/embed/qp0HIF3SfI4",
+                summary: "Simon Sinek presents a simple but powerful model for inspirational leadership and startup marketing, starting with a golden circle and the question 'Why?'. He uses examples like Apple to explain why some organizations inspire while others do not.",
+                opinion: "This is arguably one of the most important videos for anyone interested in startups. Sinek's concept that 'people don't buy what you do; they buy why you do it' completely flips traditional marketing on its head. It taught me that a successful business must be built on a core belief.",
+                vocab: [
+                    { term: "golden circle", def: "Simon Sinek's model consisting of three layers: What, How, and Why" },
+                    { term: "value proposition", def: "an innovation, service, or feature intended to make a company or product attractive to customers" }
+                ]
+            }
+        ];
 
         const channelColors = { DOAC: "#B8432B", Educational: "#006B3E", Motivational: "#2E8B57", Shamani: "#FF6A00", BBC: "#2C5F8A", TED: "#A8242A", Shetty: "#6B5B95", NYT: "#1A1A1A", NatGeo: "#D9A52A" };
 
@@ -1026,29 +1064,29 @@
           <div style="margin-bottom: 2rem;">
             <p class="block-label">Your Opinion</p>
             <p class="opinion">${(() => {
-                const highlightMap = {
-                    "01": "It made me realize that future business leaders will need to prioritize ethics just as much as innovation",
-                    "02": "It made me realize that burying my head in the sand isn't an option; we have to actively adapt and 'plug into' this new reality or risk being left behind",
-                    "03": "made me realize that AI isn't just a tech issue—it's a massive geopolitical chess piece",
-                    "04": "people fail because they are 'bad askers'",
-                    "05": "AI is becoming democratized",
-                    "06": "It changed my perspective on why tech companies push beta products",
-                    "07": "It made me realize that applying a 'complicated' solution to a 'complex' problem is a recipe for disaster",
-                    "08": "it is not over until you win",
-                    "09": "It showed me that innovation is less about having endless resources and more about identifying a core problem and solving it relentlessly",
-                    "10": "successful business must be built on a core belief"
-                };
-                const phrase = highlightMap[e.track];
-                if (phrase) {
-                    const lowerOpinion = e.opinion.toLowerCase();
-                    const lowerPhrase = phrase.toLowerCase();
-                    const idx = lowerOpinion.indexOf(lowerPhrase);
-                    if (idx !== -1) {
-                        return e.opinion.substring(0, idx) + '<span class="highlight">' + e.opinion.substring(idx, idx + phrase.length) + '</span>' + e.opinion.substring(idx + phrase.length);
+                    const highlightMap = {
+                        "01": "It made me realize that future business leaders will need to prioritize ethics just as much as innovation",
+                        "02": "It made me realize that burying my head in the sand isn't an option; we have to actively adapt and 'plug into' this new reality or risk being left behind",
+                        "03": "made me realize that AI isn't just a tech issue—it's a massive geopolitical chess piece",
+                        "04": "people fail because they are 'bad askers'",
+                        "05": "AI is becoming democratized",
+                        "06": "It changed my perspective on why tech companies push beta products",
+                        "07": "It made me realize that applying a 'complicated' solution to a 'complex' problem is a recipe for disaster",
+                        "08": "it is not over until you win",
+                        "09": "It showed me that innovation is less about having endless resources and more about identifying a core problem and solving it relentlessly",
+                        "10": "successful business must be built on a core belief"
+                    };
+                    const phrase = highlightMap[e.track];
+                    if (phrase) {
+                        const lowerOpinion = e.opinion.toLowerCase();
+                        const lowerPhrase = phrase.toLowerCase();
+                        const idx = lowerOpinion.indexOf(lowerPhrase);
+                        if (idx !== -1) {
+                            return e.opinion.substring(0, idx) + '<span class="highlight">' + e.opinion.substring(idx, idx + phrase.length) + '</span>' + e.opinion.substring(idx + phrase.length);
+                        }
                     }
-                }
-                return e.opinion;
-            })()}</p>
+                    return e.opinion;
+                })()}</p>
           </div>
 
           <div>
@@ -1066,13 +1104,13 @@
 
         // Interactive TOC & Reveal on scroll
         const obs = new IntersectionObserver((entriesObs) => {
-            entriesObs.forEach(en => { 
+            entriesObs.forEach(en => {
                 if (en.isIntersecting) {
-                    en.target.classList.add('show'); 
+                    en.target.classList.add('show');
                     // Update active TOC
                     document.querySelectorAll('.toc-item').forEach(t => t.classList.remove('active'));
                     const activeToc = document.querySelector('.toc-item a[href="#' + en.target.id + '"]');
-                    if(activeToc) activeToc.closest('.toc-item').classList.add('active');
+                    if (activeToc) activeToc.closest('.toc-item').classList.add('active');
                 }
             });
         }, { threshold: 0.15 });
@@ -1080,9 +1118,9 @@
 
         // Highlight reveal on scroll
         const highlightObs = new IntersectionObserver((entriesObs) => {
-            entriesObs.forEach(en => { 
+            entriesObs.forEach(en => {
                 if (en.isIntersecting) {
-                    en.target.classList.add('show'); 
+                    en.target.classList.add('show');
                 }
             });
         }, { threshold: 0.5 });
@@ -1134,7 +1172,7 @@
     </script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             const text = "ICT Undergraduate at Uva Wellassa University.\nDeeply passionate about tech startups, business strategy, and continuous self-growth.";
             const bioEl = document.getElementById("typewriter-bio");
             let i = 0;
