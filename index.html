@@ -531,50 +531,75 @@
             }
         }
     
-        .author-card {
-            display: flex;
+        
+
+    
+        .hero-intro {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
             align-items: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background: var(--paper-raised);
-            border: 1px solid var(--rule);
-            border-radius: 12px;
-            box-shadow: var(--card-shadow);
+            margin-bottom: 4rem;
+            padding-top: 2rem;
         }
 
-        .author-photo {
-            width: 140px;
-            height: 140px;
-            border-radius: 12px;
+        .hero-photo-wrapper {
+            position: relative;
+        }
+
+        .hero-photo {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.3);
             object-fit: cover;
-            border: 1px solid var(--rule);
-            flex-shrink: 0;
+            display: block;
         }
 
-        .author-info h3 {
-            margin: 0 0 0.5rem 0;
+        .hero-text-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-name {
             font-family: 'Fraunces', serif;
-            font-size: 1.5rem;
+            font-size: 3.5rem;
+            margin: 0 0 0.5rem 0;
+            line-height: 1.1;
             color: var(--ink);
         }
 
-        .author-info p {
-            margin: 0 0 0.5rem 0;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: var(--ink-soft);
-        }
-        
-        .author-info p:last-child {
-            margin-bottom: 0;
+        .hero-subtitle {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.1rem;
+            color: var(--brick);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
         }
 
-        @media (max-width: 600px) {
-            .author-card {
-                flex-direction: column;
-                text-align: center;
+        .hero-bio {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--ink-soft);
+            min-height: 150px; 
+            border-right: 2px solid var(--ink); 
+            padding-right: 4px;
+            display: inline-block;
+            animation: blinkCursor 0.75s step-end infinite;
+        }
+
+        @keyframes blinkCursor {
+            from, to { border-color: transparent }
+            50% { border-color: var(--ink); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-intro {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
+            .hero-name { font-size: 2.5rem; }
+            .hero-bio { min-height: 100px; }
         }
 
     </style>
@@ -611,15 +636,19 @@
 
     </header>
 
-    <section class="author-card wrap">
-        <img src="profile.png" alt="MR. Hansul Rahman" class="author-photo">
-        <div class="author-info">
-            <h3>MR. Hansul Rahman</h3>
-            <p><strong>UWU/ICT/24/004</strong> &middot; ICT Undergraduate at Uva Wellassa University</p>
-            <p>I am an Information and Communication Technology undergraduate passionate about startups, business strategy, and continuous self-growth. This portfolio explores the language and ideas used by top leaders to inspire action.</p>
-            <p><em>Fun Fact:</em> I have a deep appreciation for cinematic photography and minimalist design—which directly inspired the sleek, black-and-white aesthetic of this very portfolio!</p>
+    <section class="hero-intro wrap">
+        <div class="hero-photo-wrapper">
+            <img src="profile.png" alt="MR. Hansul Rahman" class="hero-photo">
+        </div>
+        <div class="hero-text-wrapper">
+            <h2 class="hero-name">MR. Hansul Rahman</h2>
+            <div class="hero-subtitle">UWU/ICT/24/004</div>
+            <div class="hero-bio" id="typewriter-bio"></div>
         </div>
     </section>
+
+
+    
 
 
     <nav class="filterbar">
@@ -891,6 +920,31 @@
             });
         });
     </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const text = "ICT Undergraduate at Uva Wellassa University.\nDeeply passionate about tech startups, business strategy, and continuous self-growth.\n\nFun Fact: I love cinematic photography and minimalist design.";
+            const bioEl = document.getElementById("typewriter-bio");
+            let i = 0;
+            function typeWriter() {
+                if (i < text.length) {
+                    if (text.charAt(i) === '\n') {
+                        bioEl.innerHTML += "<br>";
+                    } else {
+                        bioEl.innerHTML += text.charAt(i);
+                    }
+                    i++;
+                    setTimeout(typeWriter, 35); // Typing speed
+                } else {
+                    setTimeout(() => {
+                        bioEl.style.borderRight = "none"; // Stop cursor blinking after done
+                    }, 3000);
+                }
+            }
+            setTimeout(typeWriter, 800); // Initial delay before typing starts
+        });
+    </script>
+
 </body>
 
 </html>
