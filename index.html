@@ -637,6 +637,140 @@
             }
         }
 
+        body.dark-mode {
+            --paper: #121212;
+            --paper-raised: #1E1E1E;
+            --ink: #E0E0E0;
+            --ink-soft: #A0A0A0;
+            --rule: #333333;
+            --brick: #E05A42;
+            --brick-deep: #FF7B63;
+            --teal: #5BB0A9;
+            --tape: #D1A538;
+            --tape-bg: #40361A;
+            --card-shadow: 0 1px 0 rgba(0, 0, 0, 0.5), 0 10px 24px -16px rgba(0, 0, 0, 0.8);
+        }
+
+        .theme-btn {
+            background: none;
+            border: 1px solid var(--rule);
+            color: var(--ink);
+            cursor: pointer;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        .theme-btn:hover { background: var(--paper-raised); transform: scale(1.05); }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--ink);
+            color: var(--paper);
+            border: none;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(20px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+        .back-to-top:hover {
+            transform: translateY(-4px);
+        }
+
+        .card {
+            transition: opacity .6s cubic-bezier(0.16, 1, 0.3, 1), transform .6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow .3s ease, margin .4s, height .4s, padding .4s;
+        }
+
+        .card.hidden-filter {
+            opacity: 0;
+            transform: scale(0.96);
+            pointer-events: none;
+            height: 0;
+            margin: 0;
+            border: none;
+            padding: 0;
+        }
+
+        .toc-item {
+            transition: all 0.2s;
+        }
+        .toc-item.active .toc-link {
+            color: var(--brick-deep);
+            font-weight: 700;
+        }
+        .toc-item.active {
+            background: var(--paper-raised);
+            padding-left: 12px;
+            border-radius: 6px;
+        }
+
+        @media (min-width: 900px) {
+            .card-body {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+                align-items: flex-start;
+            }
+            .media-container {
+                position: sticky;
+                top: 100px;
+            }
+        }
+
+        .highlight {
+            position: relative;
+            display: inline;
+            z-index: 1;
+        }
+        .highlight::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 35%;
+            background: #FFE066;
+            z-index: -1;
+            transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+            transition-delay: 0.4s;
+        }
+        body.dark-mode .highlight::after {
+            background: #997B00;
+        }
+        .card.show .highlight::after {
+            width: 100%;
+        }
+
+        body.dark-mode .vocab-chip {
+            background: #1C2625;
+            border-color: #243838;
+            color: #5BB0A9;
+        }
+        body.dark-mode .vocab-chip b {
+            color: #A0C5C2;
+        }
+        body.dark-mode .opinion {
+            border-left-color: #5BB0A9;
+            color: #C0C0C0;
+        }
+
     </style>
 </head>
 
@@ -646,6 +780,9 @@
         <div class="topbar-inner">
             <span class="rec"><span class="rec-dot"></span> Session Log</span>
             <span>Communicative English &middot; FOT &middot; CA1</span>
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
         </div>
     </div>
 
@@ -693,6 +830,8 @@
 
         <section class="log" id="log"></section>
     </main>
+
+    <button id="back-to-top" class="back-to-top" aria-label="Back to Top">&uarr;</button>
 
     <footer>
         <div class="wrap">
@@ -895,52 +1034,98 @@
         </div>
       </div>
       
-      <div style="margin-bottom: 2rem;">
-        <p class="block-label">Reference of the Content</p>
-        <p style="font-size: 0.95rem; color: var(--ink-light); line-height: 1.5;">${e.refText} <br><a href="${e.refLink}" target="_blank" rel="noopener" style="color: var(--rule); text-decoration: underline; font-weight: 500;">Link to Page</a></p>
-      </div>
+      <div class="card-text-content">
+          <div style="margin-bottom: 2rem;">
+            <p class="block-label">Reference of the Content</p>
+            <p style="font-size: 0.95rem; color: var(--ink-soft); line-height: 1.5;">${e.refText} <br><a href="${e.refLink}" target="_blank" rel="noopener" style="color: var(--rule); text-decoration: underline; font-weight: 500;">Link to Page</a></p>
+          </div>
 
-      <div style="margin-bottom: 2rem;">
-        <p class="block-label">Summary</p>
-        <p class="opinion">${e.summary}</p>
-      </div>
+          <div style="margin-bottom: 2rem;">
+            <p class="block-label">Summary</p>
+            <p class="opinion">${e.summary}</p>
+          </div>
 
-      <div style="margin-bottom: 2rem;">
-        <p class="block-label">Your Opinion</p>
-        <p class="opinion">${e.opinion}</p>
-      </div>
+          <div style="margin-bottom: 2rem;">
+            <p class="block-label">Your Opinion</p>
+            <p class="opinion">${(() => {
+                const sentences = e.opinion.split('. ');
+                if (sentences.length > 1) {
+                    sentences[0] = '<span class="highlight">' + sentences[0] + '</span>';
+                    return sentences.join('. ');
+                }
+                return '<span class="highlight">' + e.opinion + '</span>';
+            })()}</p>
+          </div>
 
-      <div>
-        <p class="block-label">Reflective Growth &middot; What I Learnt</p>
-        <p class="opinion" style="margin-bottom: 1.5rem; font-style: italic; color: var(--ink-light);">These conversations challenged my perspective and introduced me to new concepts. Here is the key vocabulary I learned to help articulate this growth:</p>
-        <div class="vocab-list">
-          ${e.vocab.map(v => `<span class="vocab-chip"><b>${v.term}</b>${v.def}</span>`).join('')}
-        </div>
+          <div>
+            <p class="block-label">Reflective Growth &middot; What I Learnt</p>
+            <p class="opinion" style="margin-bottom: 1.5rem; font-style: italic; color: var(--ink-soft);">These conversations challenged my perspective and introduced me to new concepts. Here is the key vocabulary I learned to help articulate this growth:</p>
+            <div class="vocab-list">
+              ${e.vocab.map(v => `<span class="vocab-chip"><b>${v.term}</b>${v.def}</span>`).join('')}
+            </div>
+          </div>
       </div>
     </div>
   `;
             logEl.appendChild(card);
         });
 
-        // Reveal on scroll
+        // Interactive TOC & Reveal on scroll
         const obs = new IntersectionObserver((entriesObs) => {
-            entriesObs.forEach(en => { if (en.isIntersecting) en.target.classList.add('show'); });
-        }, { threshold: 0.08 });
+            entriesObs.forEach(en => { 
+                if (en.isIntersecting) {
+                    en.target.classList.add('show'); 
+                    // Update active TOC
+                    document.querySelectorAll('.toc-item').forEach(t => t.classList.remove('active'));
+                    const activeToc = document.querySelector('.toc-item a[href="#' + en.target.id + '"]');
+                    if(activeToc) activeToc.closest('.toc-item').classList.add('active');
+                }
+            });
+        }, { threshold: 0.15 });
         document.querySelectorAll('.card').forEach(c => obs.observe(c));
 
-        // Filter pills
+        // Filter pills (Smooth animation)
         document.querySelectorAll('.pill').forEach(pill => {
             pill.addEventListener('click', () => {
                 document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
                 pill.classList.add('active');
                 const f = pill.dataset.filter;
                 document.querySelectorAll('.card').forEach(c => {
-                    c.style.display = (f === 'all' || c.dataset.channel === f) ? '' : 'none';
+                    if (f === 'all' || c.dataset.channel === f) {
+                        c.classList.remove('hidden-filter');
+                    } else {
+                        c.classList.add('hidden-filter');
+                    }
                 });
                 document.querySelectorAll('.toc-item').forEach(t => {
                     t.style.display = (f === 'all' || t.dataset.channel === f) ? '' : 'none';
                 });
             });
+        });
+
+        // Back to top button logic
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Theme toggle logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const theme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
         });
     </script>
 
