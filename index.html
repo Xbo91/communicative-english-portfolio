@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ten Conversations Worth Replaying — Hansul Rahman</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --paper: #F1EFEA;
+            --paper-raised: #FAF8F4;
+            --ink: #161A22;
+            --ink-soft: #52596B;
+            --rule: #D9D4C8;
+            --brick: #B8432B;
+            --brick-deep: #8F3220;
+            --teal: #3C6E6A;
+            --tape: #C8941F;
+            --tape-bg: #F3E6C4;
+            --card-shadow: 0 1px 0 rgba(22, 26, 34, 0.04), 0 10px 24px -16px rgba(22, 26, 34, 0.25);
+            --maxw: 880px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--brick-deep);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .wrap {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ---------- top bar ---------- */
+        .topbar {
+            border-bottom: 1px solid var(--rule);
+            background: var(--paper-raised);
+        }
+
+        .topbar-inner {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            letter-spacing: .04em;
+            color: var(--ink-soft);
+            text-transform: uppercase;
+        }
+
+        .rec {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .rec-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--brick);
+            box-shadow: 0 0 0 0 rgba(184, 67, 43, .5);
+            animation: pulse 2.4s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(184, 67, 43, .45);
+            }
+
+            70% {
+                box-shadow: 0 0 0 7px rgba(184, 67, 43, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(184, 67, 43, 0);
+            }
+        }
+
+        /* ---------- hero / masthead ---------- */
+        .hero {
+            padding: 64px 0 28px;
+        }
+
+        .hero-eyebrow {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12.5px;
+            letter-spacing: .08em;
+            color: var(--brick-deep);
+            text-transform: uppercase;
+            margin: 0 0 18px;
+        }
+
+        h1.title {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: clamp(34px, 5.4vw, 54px);
+            line-height: 1.04;
+            margin: 0 0 18px;
+            color: var(--ink);
+            letter-spacing: -0.01em;
+        }
+
+        h1.title em {
+            font-style: italic;
+            font-weight: 500;
+            color: var(--brick-deep);
+        }
+
+        .hero-sub {
+            font-size: 17px;
+            color: var(--ink-soft);
+            max-width: 640px;
+            margin: 0 0 30px;
+        }
+
+        .byline {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 22px;
+            align-items: center;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px;
+            color: var(--ink);
+            border-top: 1px solid var(--rule);
+            border-bottom: 1px solid var(--rule);
+            padding: 16px 0;
+        }
+
+        .byline b {
+            font-weight: 600;
+        }
+
+        .byline .sep {
+            color: var(--rule);
+        }
+
+        /* ---------- rubric chips ---------- */
+        .rubric {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 22px 0 0;
+        }
+
+        .chip {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11.5px;
+            letter-spacing: .02em;
+            background: var(--paper-raised);
+            border: 1px solid var(--rule);
+            color: var(--ink-soft);
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+
+        .chip b {
+            color: var(--ink);
+        }
+
+        
+
+        /* ---------- channel filter ---------- */
+        .filterbar {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: var(--paper);
+            border-bottom: 1px solid var(--rule);
+            padding: 14px 0;
+            margin-top: 46px;
+        }
+
+        .filterbar-inner {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            color: var(--ink-soft);
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            margin-right: 4px;
+        }
+
+        .pill {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            cursor: pointer;
+            border: 1px solid var(--rule);
+            background: var(--paper-raised);
+            color: var(--ink);
+            padding: 6px 12px;
+            border-radius: 30px;
+            transition: all .2s cubic-bezier(0.16, 1, 0.3, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .pill .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+        }
+
+        .pill.active {
+            background: var(--ink);
+            color: var(--paper-raised);
+            border-color: var(--ink);
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(22, 26, 34, 0.15);
+        }
+
+        .pill:hover:not(.active) {
+            border-color: var(--ink);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(22, 26, 34, 0.08);
+        }
+
+        /* ---------- table of contents ---------- */
+        .toc {
+            margin: 30px 0 10px;
+        }
+
+        .toc-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            border-top: 1px solid var(--rule);
+        }
+
+        .toc-item {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+            padding: 11px 0;
+            border-bottom: 1px solid var(--rule);
+            font-size: 15px;
+        }
+
+        .toc-time {
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--brick-deep);
+            font-size: 13px;
+            width: 54px;
+            flex: none;
+        }
+
+        .toc-link {
+            color: var(--ink);
+            font-weight: 500;
+        }
+
+        .toc-channel {
+            margin-left: auto;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            color: var(--ink-soft);
+            flex: none;
+        }
+
+        /* ---------- entries ---------- */
+        .log {
+            padding: 50px 0 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 34px;
+        }
+
+        .card {
+            background: var(--paper-raised);
+            border: 1px solid var(--rule);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(22, 26, 34, 0.02), 0 12px 32px -16px rgba(22, 26, 34, 0.15);
+            overflow: hidden;
+            scroll-margin-top: 80px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity .6s cubic-bezier(0.16, 1, 0.3, 1), transform .6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow .3s ease;
+        }
+
+        .card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(22, 26, 34, 0.04), 0 24px 48px -16px rgba(22, 26, 34, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .card-head {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 22px 26px 18px;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .track-num {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            color: var(--paper-raised);
+            background: var(--ink);
+            padding: 4px 8px;
+            border-radius: 3px;
+            flex: none;
+            letter-spacing: .04em;
+        }
+
+        .card-head-text {
+            flex: 1;
+        }
+
+        .card-title {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 22px;
+            line-height: 1.25;
+            margin: 0 0 8px;
+        }
+
+        .meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 14px;
+            align-items: center;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            color: var(--ink-soft);
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 3px 9px;
+            border-radius: 30px;
+            background: var(--tape-bg);
+            color: #6a4f12;
+            font-size: 11.5px;
+            border: 1px solid #e6d39c;
+        }
+
+        .tag .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        .card-body {
+            padding: 22px 26px 26px;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .media-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(22, 26, 34, 0.08);
+            background: var(--ink);
+            border: 1px solid var(--rule);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .media-actions {
+            font-size: 13px;
+            text-align: right;
+        }
+
+        .block-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .07em;
+            color: var(--brick-deep);
+            margin: 0 0 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .block-label::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--rule);
+        }
+
+        .ref-text {
+            font-size: 14px;
+            color: var(--ink-soft);
+            margin: 0;
+        }
+
+        .ref-link {
+            font-size: 13px;
+            margin-top: 6px;
+            display: inline-block;
+        }
+
+        p.body-text {
+            margin: 0;
+            font-size: 15px;
+        }
+
+        .opinion {
+            border-left: 3px solid var(--teal);
+            padding: 4px 0 4px 16px;
+            font-size: 15px;
+            font-style: italic;
+            color: #243838;
+        }
+
+        
+
+        .vocab-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .vocab-chip {
+            background: #EAF1F0;
+            border: 1px solid #cfe2e0;
+            color: var(--teal);
+            border-radius: 5px;
+            padding: 7px 11px;
+            font-size: 13px;
+            max-width: 100%;
+        }
+
+        .vocab-chip b {
+            display: block;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: .02em;
+            color: #1f4744;
+            margin-bottom: 2px;
+        }
+
+        /* ---------- footer ---------- */
+        footer {
+            border-top: 1px solid var(--rule);
+            padding: 40px 0 70px;
+            color: var(--ink-soft);
+            font-size: 13.5px;
+        }
+
+        footer .wrap {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        footer .f-mono {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+        }
+
+        @media (max-width:560px) {
+            .hero {
+                padding: 46px 0 20px;
+            }
+
+            .card-head {
+                flex-direction: column;
+            }
+
+            .toc-channel {
+                display: none;
+            }
+
+            footer .wrap {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topbar">
+        <div class="topbar-inner">
+            <span class="rec"><span class="rec-dot"></span> Session Log</span>
+            <span>Communicative English &middot; FOT &middot; CA1</span>
+        </div>
+    </div>
+
+    <header class="wrap hero">
+        <p class="hero-eyebrow">E&ndash;Portfolio &middot; Continuous Assessment 1</p>
+        <h1 class="title">Ten Conversations<br><em>Worth Replaying</em></h1>
+        <p class="hero-sub">A listening &amp; reflection log across seven interview channels &mdash; what was said, what
+            I think of it, and what it taught me about the language people use to talk about big ideas.</p>
+        <div class="byline">
+            <span><b>Hansul Rahman</b></span>
+            <span class="sep">/</span>
+            <span>UWU/ICT/24/004</span>
+            <span class="sep">/</span>
+            <span>Submitted 20 June 2026</span>
+        </div>
+        <div class="rubric">
+            <span class="chip">Critical Analysis &middot; <b>7</b></span>
+            <span class="chip">Vocabulary &amp; Language &middot; <b>4</b></span>
+            <span class="chip">Reference &middot; <b>4</b></span>
+            <span class="chip">Organization &amp; Design &middot; <b>4</b></span>
+            <span class="chip">Reflective Growth &middot; <b>6</b></span>
+        </div>
+        
+    </header>
+
+    <nav class="filterbar">
+        <div class="wrap filterbar-inner">
+            <span class="filter-label">Filter by channel</span>
+            <span class="pill active" data-filter="all">All 10</span>
+            <span class="pill" data-filter="DOAC"><span class="dot" style="background:#B8432B"></span>Diary of a
+                CEO</span>
+            <span class="pill" data-filter="BBC"><span class="dot" style="background:#2C5F8A"></span>BBC</span>
+            <span class="pill" data-filter="TED"><span class="dot" style="background:#A8242A"></span>TED</span>
+            <span class="pill" data-filter="Shetty"><span class="dot" style="background:#6B5B95"></span>Jay
+                Shetty</span>
+            <span class="pill" data-filter="NYT"><span class="dot" style="background:#1A1A1A"></span>NYT</span>
+            <span class="pill" data-filter="NatGeo"><span class="dot" style="background:#D9A52A"></span>Nat Geo
+                History</span>
+        </div>
+    </nav>
+
+    <main class="wrap">
+        <section class="toc">
+            <ul class="toc-list" id="toc-list"></ul>
+        </section>
+
+        <section class="log" id="log"></section>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <span class="f-mono">Hansul Rahman &middot; UWU/ICT/24/004</span>
+            <span class="f-mono">Communicative English &ndash; FOT &middot; CA1 E&ndash;Portfolio</span>
+        </div>
+    </footer>
+
+    <script>
+        const entries = [
+    {
+        track: "01", channel: "DOAC", channelLabel: "Diary of a CEO",
+        title: "John Lennox: AI, Faith and the Search for Meaning",
+        dateAccessed: "17 Jun 2026", published: "4 Jun 2026",
+        refText: "YouTube — “The Diary Of A CEO” channel, hosted by Steven Bartlett.",
+        refLink: "https://podcasts.apple.com/gb/podcast/the-diary-of-a-ceo-with-steven-bartlett/id1291423644",
+        embedUrl: "",
+        summary: "Steven Bartlett interviews Oxford mathematician and Christian apologist Professor John Lennox in a 1.5-hour conversation. Lennox argues AI's rise is a philosophical event as much as a technological one, forcing people to confront what makes us human, and warns against treating AI as a substitute for religious belief. The discussion covers transhumanism, mortality, and the search for meaning in a technological age.",
+        opinion: "Watching this episode, I was deeply moved by how Lennox framed AI not just as a technological shift, but as a mirror reflecting our deepest values. The conversation completely changed my perspective on the intersection of faith and science. Instead of the usual doom-mongering about job losses, this felt like a profound philosophical exploration of what it actually means to be human in a world where machines can mimic our intelligence.",
+        vocab: [
+            { term: "transhumanism", def: "the belief that humans can/should use technology to transcend biological limits" },
+            { term: "apologist", def: "someone who defends a position through reasoned argument — not someone who is sorry" },
+            { term: "existential", def: "relating to questions about meaning and human existence" },
+            { term: "doom-mongering", def: "the act of spreading anxiety and fear about the future" }
+        ]
+    },
+    {
+        track: "02", channel: "DOAC", channelLabel: "Diary of a CEO",
+        title: "Tech Whistleblower: You Only Have 3 Years Left Before It Hits — Mo Gawdat",
+        dateAccessed: "17 Jun 2026", published: "1 Jun 2026",
+        refText: "YouTube — “The Diary Of A CEO” channel, hosted by Steven Bartlett.",
+        refLink: "https://www.youtube.com/watch?v=RwlgFC6S-OE",
+        embedUrl: "https://www.youtube-nocookie.com/embed/RwlgFC6S-OE",
+        summary: "Mo Gawdat, former Chief Business Officer at Google X, argues that AGI has effectively arrived and predicts roughly 30% of jobs could disappear by 2027. He distinguishes between people who “plug into” AI and build leaner companies, and those left behind in the job market, citing his own three-person startup doing what once took 350 people.",
+        opinion: "Gawdat's insights hit hard because he's speaking from the inside of the tech industry, not just theorizing from the outside. His prediction about 30% job loss by 2027 was a real wake-up call for me. It made me realize that burying my head in the sand isn't an option; we have to actively adapt and 'plug into' this new reality or risk being left behind. His certainty was unsettling, but incredibly motivating.",
+        vocab: [
+            { term: "AGI", def: "Artificial General Intelligence — AI matching/exceeding human ability across most tasks" },
+            { term: "augmented intelligence", def: "a transition phase where humans and AI work together rather than AI replacing humans" },
+            { term: "dystopia", def: "an imagined future state that is frightening or undesirable" },
+            { term: "leaner", def: "more efficient and using fewer resources or employees" }
+        ]
+    },
+    {
+        track: "03", channel: "DOAC", channelLabel: "Steven Bartlett",
+        title: "Dr Mark Hyman on Food, Longevity and Metabolic Health",
+        dateAccessed: "17 Jun 2026", published: "12 Jun 2026",
+        refText: "The Diary Of A CEO with Steven Bartlett, YouTube/iHeart.",
+        refLink: "https://www.iheart.com/podcast/270-the-diary-of-a-ceo-with-st-59414390/",
+        embedUrl: "",
+        summary: "Physician and author Dr Mark Hyman discusses longevity and metabolic health. Specialising in functional medicine, he explains how everyday food choices affect long-term disease risk and argues that most chronic illness is preventable through diet and lifestyle rather than medication alone.",
+        opinion: "This was a highly practical episode that made me rethink my daily habits. Dr. Hyman's approach to functional medicine is fascinating because it empowers you to take control of your own biology. Instead of waiting to get sick and relying on pills, focusing on food as medicine feels like a much more proactive way to live. I'm definitely going to start paying more attention to my metabolic health after hearing his arguments.",
+        vocab: [
+            { term: "functional medicine", def: "a treatment approach that looks for the root cause of disease, not just symptoms" },
+            { term: "metabolic health", def: "how efficiently your body processes food into energy" },
+            { term: "longevity", def: "length of life — now often used to mean healthy lifespan specifically" },
+            { term: "proactive", def: "creating or controlling a situation rather than just responding to it" }
+        ]
+    },
+    {
+        track: "04", channel: "BBC", channelLabel: "BBC",
+        title: "Reid Hoffman on AI and the Future of Work",
+        dateAccessed: "17 Jun 2026", published: "2026",
+        refText: "“The Interview,” BBC World Service / BBC Sounds, hosted by Amol Rajan.",
+        refLink: "https://open.spotify.com/show/3OLU3WKNozcvpcmgO7PEax",
+        embedUrl: "",
+        summary: "LinkedIn co-founder Reid Hoffman speaks with Amol Rajan about why AI could transform the future of work. He argues for rapid but carefully governed AI adoption, and reflects candidly on tech-billionaire culture and his past association with the late Jeffrey Epstein.",
+        opinion: "I really appreciated Amol Rajan's interviewing style here; he didn't shy away from asking tough, uncomfortable questions. It was refreshing to hear a tech billionaire like Hoffman be challenged directly on both his ethical views and past associations. The conversation highlighted the tension between the push for rapid AI innovation and the desperate need for responsible governance, leaving me with a lot to chew on.",
+        vocab: [
+            { term: "co-founding", def: "starting a company together with one or more partners" },
+            { term: "safe and ethical adoption", def: "rolling out new technology responsibly rather than purely for speed or profit" },
+            { term: "governance", def: "the action or manner of governing or regulating a system" }
+        ]
+    },
+    {
+        track: "05", channel: "TED", channelLabel: "TED",
+        title: "Waymo Co-CEO Tekedra Mawakana in Conversation with Sal Khan",
+        dateAccessed: "17 Jun 2026", published: "14 Apr 2026 · TED2026, Vancouver",
+        refText: "TED YouTube channel / TED Blog coverage of TED2026, Day 2.",
+        refLink: "https://blog.ted.com/bold-ideas-big-stakes-day-2-of-ted2026/",
+        embedUrl: "",
+        summary: "At TED2026, Waymo co-CEO Tekedra Mawakana is interviewed on stage by TED Vision Steward Sal Khan. She discusses the current state of Waymo's autonomous driving technology, the scale of rides delivered weekly, and her view that self-driving cars could meaningfully reduce road deaths caused by human error.",
+        opinion: "Seeing an expert like Sal Khan interview Tekedra Mawakana brought a grounded, analytical tone to a topic that is usually drowning in sci-fi hype. Focusing on the sheer reduction in road fatalities rather than just the convenience factor made the mission of autonomous vehicles resonate with me on a human level. It shifted my view from seeing self-driving cars as a luxury to seeing them as a public safety imperative.",
+        vocab: [
+            { term: "autonomous vehicles", def: "self-driving cars that operate without a human driver" },
+            { term: "to scale", def: "to expand a technology's use from a small trial to widespread adoption" },
+            { term: "imperative", def: "an essential or urgent thing" }
+        ]
+    },
+    {
+        track: "06", channel: "TED", channelLabel: "TED",
+        title: "The Coming Merger of Humans and AI — D. Scott Phoenix",
+        dateAccessed: "17 Jun 2026", published: "14 Apr 2026 · TED2026, Vancouver",
+        refText: "TED YouTube channel / TED Blog coverage of TED2026, Day 2.",
+        refLink: "https://blog.ted.com/bold-ideas-big-stakes-day-2-of-ted2026/",
+        embedUrl: "",
+        summary: "Entrepreneur D. Scott Phoenix argues today's moment in AI is comparable to a pivotal event two billion years ago, when two cells merged to create the complex life that all plants and animals descended from. He suggests humans face a similar choice now: merge with AI as a partner, or be replaced by it as a cheaper, ever-improving substitute.",
+        opinion: "Phoenix's biological analogy was mind-blowing and completely reframed how I see our relationship with AI. Comparing our current technological era to a fundamental evolutionary leap makes the stakes feel incredibly high. It forced me to consider that perhaps our fear of replacement is misplaced, and that integration or 'merging' might be the natural, necessary next step for human survival.",
+        vocab: [
+            { term: "merger", def: "combining two separate things into one — used here for both biology and technology" },
+            { term: "the boundary is dissolving", def: "a vivid way of describing two previously separate categories becoming hard to tell apart" },
+            { term: "pivotal", def: "of crucial importance in relation to the development or success of something else" }
+        ]
+    },
+    {
+        track: "07", channel: "Shetty", channelLabel: "Jay Shetty",
+        title: "Sara Al Madani: Stop Falling for “Potential”",
+        dateAccessed: "17 Jun 2026", published: "1 Jun 2026",
+        refText: "On Purpose with Jay Shetty, YouTube/Spotify.",
+        refLink: "https://podcasts.apple.com/us/podcast/on-purpose-with-jay-shetty/id1450994021",
+        embedUrl: "",
+        summary: "Entrepreneur Sara Al Madani speaks with Jay Shetty about surviving toxic relationships and rebuilding her identity afterward. The conversation centres on loving someone for their “potential” rather than who they actually are, and how this pattern leads people to waste months waiting for a partner to change.",
+        opinion: "This conversation hit very close to home. Al Madani's point about loving someone's 'potential' instead of their reality is a trap I think many of us fall into. Shetty's gentle interviewing style really allowed her vulnerability to shine through. It taught me a vital lesson about boundaries and the danger of self-abandonment in the name of love.",
+        vocab: [
+            { term: "toxic relationship", def: "a relationship pattern that is consistently harmful to one's wellbeing" },
+            { term: "self-abandonment", def: "giving up your own needs or identity to keep a relationship or please someone" },
+            { term: "vulnerability", def: "the quality or state of being exposed to the possibility of being attacked or harmed, either physically or emotionally" }
+        ]
+    },
+    {
+        track: "08", channel: "Shetty", channelLabel: "Jay Shetty",
+        title: "Coral Santoro: The #1 Reason Most People Never Reach Their Goals",
+        dateAccessed: "17 Jun 2026", published: "8 Jun 2026",
+        refText: "On Purpose with Jay Shetty, YouTube/Spotify.",
+        refLink: "https://podcast.app/on-purpose-with-jay-shetty-p616220",
+        embedUrl: "",
+        summary: "Coral Santoro talks with Jay Shetty about why people give up on goals, arguing success depends less on reaching a destination and more on resilience built through failure and uncertainty. The episode introduces a “1% rule” for making small daily progress even when motivation is low.",
+        opinion: "The '1% rule' discussed here is exactly the kind of actionable advice I needed. It's so easy to get overwhelmed by the big picture and freeze up. Santoro's focus on building resilience through tiny, consistent steps takes the pressure off. Even though the format felt a bit tailored for social media virality, the core message about prioritizing consistency over fleeting motivation is incredibly solid.",
+        vocab: [
+            { term: "resilience", def: "the ability to recover from setbacks" },
+            { term: "there is no universal timeline", def: "a phrase used to push back against comparing your progress to others'" },
+            { term: "consistency", def: "conformity in the application of something, typically that which is necessary for the sake of logic, accuracy, or fairness" }
+        ]
+    },
+    {
+        track: "09", channel: "NYT", channelLabel: "The New York Times",
+        title: "An Exclusive Sit-Down with the Now-Former CBS News Correspondent — Scott Pelley",
+        dateAccessed: "17 Jun 2026", published: "2026",
+        refText: "“The Interview,” The New York Times, hosted by Lulu Garcia-Navarro & David Marchese.",
+        refLink: "https://podcasts.apple.com/us/podcast/the-interview/id1624946521",
+        embedUrl: "",
+        summary: "Host Lulu Garcia-Navarro sits down with veteran journalist Scott Pelley shortly after his departure from CBS News, covering his decades-long broadcast career and his perspective on the pressures facing TV news today.",
+        opinion: "The rigor of this interview was striking. Garcia-Navarro pushed Pelley with a directness that you rarely hear in more casual podcast settings. It made me realize how much the format and the interviewer's intent shape the information we receive. The blunt questioning style might have felt aggressive to some, but it yielded a deeply revealing look into the real pressures of modern broadcast journalism.",
+        vocab: [
+            { term: "correspondent", def: "a journalist who reports regularly, often from a specific place or on a specific topic" },
+            { term: "broadcast journalism", def: "news reported via television or radio, as distinct from print or digital-only" },
+            { term: "rigor", def: "the quality of being extremely thorough, exhaustive, or accurate" }
+        ]
+    },
+    {
+        track: "10", channel: "NatGeo", channelLabel: "Nat Geo History",
+        title: "Why This Mystery About the Ancient Americas Has Sparked an Explosive Debate",
+        dateAccessed: "17 Jun 2026", published: "27 Apr 2026",
+        refText: "National Geographic, YouTube and nationalgeographic.com.",
+        refLink: "https://www.nationalgeographic.com/history/article/stones-and-bones-first-americans",
+        embedUrl: "",
+        summary: "This video feature examines the age of the Monte Verde site in Chile. Explorer Tom Dillehay originally dated it to roughly 14,500 years old in the 1970s, challenging the “Clovis-first” theory of how humans reached the Americas. A new study now disputes Dillehay's dating, claiming the site is thousands of years younger — and the piece interviews archaeologists on both sides.",
+        opinion: "I found this piece profoundly engaging because it didn't spoon-feed a conclusion. Watching respected scientists clash over the exact same data—radiocarbon dating versus stratigraphic evidence—was an eye-opener. It brilliantly illustrated that historical 'facts' are often fluid and that science is an ongoing, sometimes messy debate rather than a collection of absolute certainties.",
+        vocab: [
+            { term: "radiocarbon dating", def: "estimating the age of organic material using its carbon-14 content" },
+            { term: "stratigraphic evidence", def: "evidence drawn from layers of rock or soil, used to date archaeological sites" },
+            { term: "paradigm", def: "a widely accepted model or framework of thought" },
+            { term: "fluid", def: "not settled or stable; likely or able to change" }
+        ]
+    }
+];
+
+        const channelColors = { DOAC: "#B8432B", BBC: "#2C5F8A", TED: "#A8242A", Shetty: "#6B5B95", NYT: "#1A1A1A", NatGeo: "#D9A52A" };
+
+        const logEl = document.getElementById('log');
+        const tocEl = document.getElementById('toc-list');
+
+        entries.forEach((e, i) => {
+            const id = "entry-" + e.track;
+            const color = channelColors[e.channel];
+
+            // TOC row
+            const li = document.createElement('li');
+            li.className = 'toc-item';
+            li.dataset.channel = e.channel;
+            li.innerHTML = `
+    <span class="toc-time">${e.track}</span>
+    <a class="toc-link" href="#${id}">${e.title}</a>
+    <span class="toc-channel">${e.channelLabel}</span>
+  `;
+            tocEl.appendChild(li);
+
+            // Card
+            const card = document.createElement('article');
+            card.className = 'card';
+            card.id = id;
+            card.dataset.channel = e.channel;
+            card.innerHTML = `
+    <div class="card-head">
+      <span class="track-num">TRACK ${e.track}</span>
+      <div class="card-head-text">
+        <h2 class="card-title">${e.title}</h2>
+        <div class="meta-row">
+          <span class="tag"><span class="dot" style="background:${color}"></span>${e.channelLabel}</span>
+          <span>Accessed ${e.dateAccessed}</span>
+          <span>&middot;</span>
+          <span>Published ${e.published}</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+          <div class="media-container">
+        <div class="video-wrapper">
+          ${e.embedUrl 
+            ? `<iframe src="${e.embedUrl}" title="Media player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+            : `<iframe src="about:blank" title="Placeholder" style="background:#000;"></iframe><!-- Add your exact embedUrl to the entries array to load a video -->`
+          }
+        </div>
+        <div class="media-actions"><a href="${e.refLink}" target="_blank" rel="noopener">Watch the original source ↗</a></div>
+      </div>
+      <div>
+        <p class="block-label">Your Opinion</p>
+        <p class="opinion">${e.opinion}</p>
+      </div>
+      <div>
+        <p class="block-label">Reflective Growth &middot; New Words &amp; Expressions</p>
+        <div class="vocab-list">
+          ${e.vocab.map(v => `<span class="vocab-chip"><b>${v.term}</b>${v.def}</span>`).join('')}
+        </div>
+      </div>
+    </div>
+  `;
+            logEl.appendChild(card);
+        });
+
+        // Reveal on scroll
+        const obs = new IntersectionObserver((entriesObs) => {
+            entriesObs.forEach(en => { if (en.isIntersecting) en.target.classList.add('show'); });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.card').forEach(c => obs.observe(c));
+
+        // Filter pills
+        document.querySelectorAll('.pill').forEach(pill => {
+            pill.addEventListener('click', () => {
+                document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+                const f = pill.dataset.filter;
+                document.querySelectorAll('.card').forEach(c => {
+                    c.style.display = (f === 'all' || c.dataset.channel === f) ? '' : 'none';
+                });
+                document.querySelectorAll('.toc-item').forEach(t => {
+                    t.style.display = (f === 'all' || t.dataset.channel === f) ? '' : 'none';
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
