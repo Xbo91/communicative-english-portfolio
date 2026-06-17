@@ -1037,12 +1037,28 @@
           <div style="margin-bottom: 2rem;">
             <p class="block-label">Your Opinion</p>
             <p class="opinion">${(() => {
-                const sentences = e.opinion.split('. ');
-                if (sentences.length > 1) {
-                    sentences[0] = '<span class="highlight">' + sentences[0] + '</span>';
-                    return sentences.join('. ');
+                const highlightMap = {
+                    "01": "It made me realize that future business leaders will need to prioritize ethics just as much as innovation",
+                    "02": "It made me realize that burying my head in the sand isn't an option; we have to actively adapt and 'plug into' this new reality or risk being left behind",
+                    "03": "made me realize that AI isn't just a tech issue—it's a massive geopolitical chess piece",
+                    "04": "people fail because they are 'bad askers'",
+                    "05": "AI is becoming democratized",
+                    "06": "It changed my perspective on why tech companies push beta products",
+                    "07": "It made me realize that applying a 'complicated' solution to a 'complex' problem is a recipe for disaster",
+                    "08": "it is not over until you win",
+                    "09": "It showed me that innovation is less about having endless resources and more about identifying a core problem and solving it relentlessly",
+                    "10": "successful business must be built on a core belief"
+                };
+                const phrase = highlightMap[e.track];
+                if (phrase) {
+                    const lowerOpinion = e.opinion.toLowerCase();
+                    const lowerPhrase = phrase.toLowerCase();
+                    const idx = lowerOpinion.indexOf(lowerPhrase);
+                    if (idx !== -1) {
+                        return e.opinion.substring(0, idx) + '<span class="highlight">' + e.opinion.substring(idx, idx + phrase.length) + '</span>' + e.opinion.substring(idx + phrase.length);
+                    }
                 }
-                return '<span class="highlight">' + e.opinion + '</span>';
+                return e.opinion;
             })()}</p>
           </div>
 
