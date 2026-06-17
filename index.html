@@ -773,10 +773,32 @@
             border-left-color: #5BB0A9;
             color: #C0C0C0;
         }
+
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: transparent;
+            z-index: 1000;
+            pointer-events: none;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--brick);
+            width: 0%;
+            transition: width 0.1s ease-out;
+        }
+
     </style>
 </head>
 
 <body>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
 
     <div class="topbar">
         <div class="topbar-inner">
@@ -1156,6 +1178,14 @@
         });
         backToTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Reading Progress Bar logic
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+            document.getElementById('progress-bar').style.width = scrolled + '%';
         });
 
         // Theme toggle logic
