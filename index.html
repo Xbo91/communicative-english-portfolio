@@ -530,6 +530,53 @@
                 flex-direction: column;
             }
         }
+    
+        .author-card {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--paper-raised);
+            border: 1px solid var(--rule);
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .author-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 1px solid var(--rule);
+            flex-shrink: 0;
+        }
+
+        .author-info h3 {
+            margin: 0 0 0.5rem 0;
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            color: var(--ink);
+        }
+
+        .author-info p {
+            margin: 0 0 0.5rem 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--ink-soft);
+        }
+        
+        .author-info p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 600px) {
+            .author-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
     </style>
 </head>
 
@@ -563,6 +610,17 @@
         </div>
 
     </header>
+
+    <section class="author-card wrap">
+        <img src="profile.png" alt="MR. Hansul Rahman" class="author-photo">
+        <div class="author-info">
+            <h3>MR. Hansul Rahman</h3>
+            <p><strong>UWU/ICT/24/004</strong> &middot; ICT Undergraduate at Uva Wellassa University</p>
+            <p>I am an Information and Communication Technology undergraduate passionate about startups, business strategy, and continuous self-growth. This portfolio explores the language and ideas used by top leaders to inspire action.</p>
+            <p><em>Fun Fact:</em> I have a deep appreciation for cinematic photography and minimalist design—which directly inspired the sleek, black-and-white aesthetic of this very portfolio!</p>
+        </div>
+    </section>
+
 
     <nav class="filterbar">
         <div class="wrap filterbar-inner">
