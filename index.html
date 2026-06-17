@@ -513,27 +513,6 @@
             font-size: 12px;
         }
 
-        @media (max-width:560px) {
-            .hero {
-                padding: 46px 0 20px;
-            }
-
-            .card-head {
-                flex-direction: column;
-            }
-
-            .toc-channel {
-                display: none;
-            }
-
-            footer .wrap {
-                flex-direction: column;
-            }
-        }
-    
-        
-
-    
         .hero-intro {
             display: grid;
             grid-template-columns: 1fr 1.5fr;
@@ -594,12 +573,68 @@
         }
 
         @media (max-width: 768px) {
+            .wrap {
+                padding: 0 16px;
+            }
+
+            .hero {
+                padding: 32px 0 16px;
+            }
+
             .hero-intro {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 1.5rem;
+                margin-bottom: 2.5rem;
             }
             .hero-name { font-size: 2.5rem; }
-            .hero-bio { min-height: 100px; }
+            .hero-bio { min-height: 90px; }
+
+            .topbar-inner {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .byline {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+                padding: 16px 0;
+            }
+
+            .byline .sep {
+                display: none;
+            }
+
+            .card-head {
+                flex-direction: column;
+                gap: 12px;
+                padding: 16px 20px;
+            }
+
+            .card-body {
+                padding: 18px 20px 24px;
+            }
+
+            .toc-channel {
+                display: none;
+            }
+
+            .toc-item {
+                align-items: flex-start;
+            }
+
+            footer .wrap {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 8px;
+            }
+
+            .filterbar {
+                margin-top: 24px;
+            }
         }
 
     </style>
@@ -619,20 +654,8 @@
         <h1 class="title">Ten Conversations<br><em>Worth Replaying</em></h1>
         <p class="hero-sub">A listening &amp; reflection log across seven interview channels &mdash; what was said, what
             I think of it, and what it taught me about the language people use to talk about big ideas.</p>
-        <div class="byline">
-            <span><b>Hansul Rahman</b></span>
-            <span class="sep">/</span>
-            <span>UWU/ICT/24/004</span>
-            <span class="sep">/</span>
-            <span>Submitted 20 June 2026</span>
-        </div>
-        <div class="rubric">
-            <span class="chip">Critical Analysis &middot; <b>7</b></span>
-            <span class="chip">Vocabulary &amp; Language &middot; <b>4</b></span>
-            <span class="chip">Reference &middot; <b>4</b></span>
-            <span class="chip">Organization &amp; Design &middot; <b>4</b></span>
-            <span class="chip">Reflective Growth &middot; <b>6</b></span>
-        </div>
+
+
 
     </header>
 
