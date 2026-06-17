@@ -791,21 +791,33 @@
       </div>
     </div>
     <div class="card-body">
-          <div class="media-container">
+      <div class="media-container">
         <div class="video-wrapper">
           ${e.embedUrl 
             ? `<iframe src="${e.embedUrl}" title="Media player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-            : `<iframe src="about:blank" title="Placeholder" style="background:#000;"></iframe><!-- Add your exact embedUrl to the entries array to load a video -->`
+            : `<iframe src="about:blank" title="Placeholder" style="background:#000;"></iframe>`
           }
         </div>
-        <div class="media-actions"><a href="${e.refLink}" target="_blank" rel="noopener">Watch the original source ↗</a></div>
       </div>
-      <div>
+      
+      <div style="margin-bottom: 2rem;">
+        <p class="block-label">Reference of the Content</p>
+        <p style="font-size: 0.95rem; color: var(--ink-light); line-height: 1.5;">${e.refText} <br><a href="${e.refLink}" target="_blank" rel="noopener" style="color: var(--rule); text-decoration: underline; font-weight: 500;">Link to Page</a></p>
+      </div>
+
+      <div style="margin-bottom: 2rem;">
+        <p class="block-label">Summary</p>
+        <p class="opinion">${e.summary}</p>
+      </div>
+
+      <div style="margin-bottom: 2rem;">
         <p class="block-label">Your Opinion</p>
         <p class="opinion">${e.opinion}</p>
       </div>
+
       <div>
-        <p class="block-label">Reflective Growth &middot; New Words &amp; Expressions</p>
+        <p class="block-label">Reflective Growth &middot; What I Learnt</p>
+        <p class="opinion" style="margin-bottom: 1.5rem; font-style: italic; color: var(--ink-light);">These conversations challenged my perspective and introduced me to new concepts. Here is the key vocabulary I learned to help articulate this growth:</p>
         <div class="vocab-list">
           ${e.vocab.map(v => `<span class="vocab-chip"><b>${v.term}</b>${v.def}</span>`).join('')}
         </div>
