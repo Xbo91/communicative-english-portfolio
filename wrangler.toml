@@ -1,3 +1,6 @@
 name = "communicative-english-portfolio"
-pages_build_output_dir = "."
+main = "worker.js"
 compatibility_date = "2024-06-20"
+
+[assets]
+directory = "public"
